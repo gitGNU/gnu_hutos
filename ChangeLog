@@ -1,0 +1,52 @@
+2008-02-08 Sudharshan "Sup3rkiddo" S <sudharsh@gmail.com>
+	* HEAD: add gcc-4.2-glib-2.7 toolchain and related patches
+	http://www.schwinge.homeip.net/~thomas/tmp/gcc-patches/
+
+	* README: Removed information about copying patches as they are available
+	in hutos CVS itself
+
+	
+2008-02-07 Sudharshan "Sup3rkiddo" S <sudharsh@gmail.com>
+	* HEAD: added patches directory. Toolchain specific patches can now
+	be included in the CVS repository itself
+	
+	* gcc-4.1-glibc-2.7.sh: Removed patches arrays PATCH0, PATCH1.
+	Apply all patches present in patches dirs instead
+
+	
+2008-01-13 Sudharshan "Sup3rkiddo" S <sudharsh@gmail.com>
+	* hurd-toolchain.sh: Add -p to mkdir added the missing 'mv src
+	binutils'
+
+	
+2008-01-12 Shakthi Kannan <shakthi.kannan@qvantel.com>
+	* hurd-toolchain.sh: Added build variables. 
+
+	Removed apply_patches(). This needs to go into gcc-*-glibc-*.sh
+	specific script.
+
+	Using xjvf with tar. Using .tar.bz2 in ${TARBALLS} only.
+	
+	(get_cross_gnu): Added condition to use cross-gnu, cross-gnu-env
+	if present in ${TARBALLS}
+
+	(get_binutils): Remove old directory, if present.
+	
+	(get_gcc): Remove old directory, if present. Added
+	apply_gcc_patches().
+
+	(get_gnumach): Remove old directory, if present.
+
+	(get_hurd): Remove old directory, if present.
+
+	(get_glibc): Remove old directory, if present. Added
+	apply_glibc_patches().
+
+	* gcc-4.1-glibc-2.7.sh: Using binutils-2_17.
+
+	Added TARBALL variables.
+
+	(apply_glibc_patches): Updated apply_glibc_patches to use
+	${TARBALLS}/${GLIBC}
+
+	* README: Updated build instructions.

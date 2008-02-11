@@ -1,0 +1,36 @@
+Needed when building with GCC 4.3.
+
+http://sourceware.org/bugzilla/show_bug.cgi?id=5442
+
+2007-03-18  Joseph Myers  <joseph@codesourcery.com>
+
+	* configure.in: Also pass -isystem option for GCC's include-fixed
+	directory.
+	* configure: Regenerate.
+
+diff --git a/configure b/configure
+index 0401d79..a937f87 100755
+--- a/configure
++++ b/configure
+@@ -5063,7 +5063,7 @@ echo "$as_me: WARNING:
+ # thing on a system that doesn't need fixincludes.  (Not presently a problem.)
+ if test -n "$sysheaders"; then
+   ccheaders=`$CC -print-file-name=include`
+-  SYSINCLUDES="-nostdinc -isystem $ccheaders \
++  SYSINCLUDES="-nostdinc -isystem $ccheaders -isystem $ccheaders-fixed \
+ -isystem `echo $sysheaders | sed 's/:/ -isystem /g'`"
+   if test -n "$CXX"; then
+     cxxversion=`$CXX -dumpversion 2>&5` &&
+diff --git a/configure.in b/configure.in
+index 2f8f779..2032af6 100644
+--- a/configure.in
++++ b/configure.in
+@@ -912,7 +912,7 @@ test -n "$aux_missing" && AC_MSG_WARN([
+ # thing on a system that doesn't need fixincludes.  (Not presently a problem.)
+ if test -n "$sysheaders"; then
+   ccheaders=`$CC -print-file-name=include`
+-  SYSINCLUDES="-nostdinc -isystem $ccheaders \
++  SYSINCLUDES="-nostdinc -isystem $ccheaders -isystem $ccheaders-fixed \
+ -isystem `echo $sysheaders | sed 's/:/ -isystem /g'`"
+   if test -n "$CXX"; then
+     cxxversion=`$CXX -dumpversion 2>&AS_MESSAGE_LOG_FD` &&
