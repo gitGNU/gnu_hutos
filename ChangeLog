@@ -1,3 +1,10 @@
+2008-02-12 Sudharshan "Sup3rkiddo" S <sudharsh@gmail.com>
+	* hurd-toolchain.sh: Added support for creating tarballs and cleaning up
+	through command line arguments
+
+	(create_tarball): New function
+	
+	
 2008-02-08 Sudharshan "Sup3rkiddo" S <sudharsh@gmail.com>
 	* HEAD: add gcc-4.2-glib-2.7 toolchain and related patches
 	http://www.schwinge.homeip.net/~thomas/tmp/gcc-patches/

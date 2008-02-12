@@ -231,6 +231,33 @@ clean() {
 	rm -rf downloads root *~
 }
 
+create_tarball() {
+        echo "Creating tarball for $1"
+        if ! [ -d ${TARBALLS} ]
+	then
+	    mkdir ${TARBALLS}
+	fi
+	cd root/src
+	tar -cjvf ${TARBALLS}/$1.tar.bz2 $2
+}	    
+
 ## Execute
 . ./setenv
-all
+if [ "$1" = "clean"]
+then
+    echo "Cleaning builds/sources"
+    rm -rf root
+elif [ "$1" = "archive"]
+    then
+    echo "Archiving sources..."
+    cd root/src
+    create_tarball ${GCC} gcc
+    create_tarball ${GLIBC} glibc
+    create_tarball ${BINUTILS} binutils
+    create_tarball ${HURD} hurd
+    create_tarball ${GNUMACH} gnumach
+    create_tarball ${MIG} mig
+    echo "Done creating Tarballs"
+else
+    all
+fi

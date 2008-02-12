@@ -9,25 +9,35 @@ Project webpage is at:
 
 http://savannah.nongnu.org/projects/hutos
 
+
 Build
 -----
-
 Create a setenv symbolic link file that points to the gcc-*-glibc-*.sh
 file before you want to build it. For example:
 
-	ln -sf gcc-4.1-glibc-2.7.sh setenv
+	$ ln -sf gcc-4.1-glibc-2.7.sh setenv
 
 To build the toolchain run:
 
-	sh hurd-toolchain.sh
+	$ sh hurd-toolchain.sh
 
 If you would like to build offline, download the relevant SOURCES
 present in the gcc-*-glibc-*.sh and cross-gnu, cross-gnu-env scripts
 in .tar.bz2 file format and put it in a tarballs directory.
 
+or
+
+$ sh hurd-toolchain.sh archive
+will create tarballs of already downloaded sources for later use
+
+Cleanup
+-------
+$ sh hurd-toolchain.sh clean
+will remove _all_ the downloaded sources+builds. If you don't want to download
+the sources again use the "archive" argument before cleaning up.
+
 References
 ----------
-
 The scripts are based on the Makefile written from:
 http://www.bddebian.com/~wiki/hurd/building/cross-compiling/Makefile.
 
@@ -36,4 +46,5 @@ http://www.bddebian.com/~wiki/hurd/building/cross-compiling.
 
 Contact
 -------
-shakthi.kannan@qvantel.com
+Shakthi Kannan, shakthi.kannan@qvantel.com
+Sudharshan "Sup3rkiddo" S, sudharsh@gmail.com
