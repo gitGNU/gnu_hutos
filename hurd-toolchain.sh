@@ -243,11 +243,11 @@ create_tarball() {
 
 ## Execute
 . ./setenv
-if [ "$1" = "clean"]
+if [ "$1" = "clean" ]
 then
     echo "Cleaning builds/sources"
     rm -rf root
-elif [ "$1" = "archive"]
+elif [ "$1" = "archive" ]
     then
     echo "Archiving sources..."
     cd root/src
