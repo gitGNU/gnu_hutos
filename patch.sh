@@ -59,11 +59,11 @@ get_apply_patches() {
 
     if [ ! -z ${patches_array} ]; then # if 0, all patches to be applied
 	for file in `ls ${patch_URL}/`; do
-	    patch -${patch_level} < ${package_dir}/${patch_level}/${file}
+	    patch -${patch_level} -N < ${package_dir}/${patch_level}/${file}
 	done
     else # only selected patches from array
 	while [ $index -lt ${#patches_array[@]} ]; do
-	    patch -${patch_level} < ${package_dir}/${patch_level}/${patches_array[index]}
+	    patch -${patch_level} -N < ${package_dir}/${patch_level}/${patches_array[index]}
 	    let "index = $index + 1"
 	done
     fi
