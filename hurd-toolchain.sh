@@ -258,6 +258,12 @@ elif [ "$1" = "archive" ]
     create_tarball ${GNUMACH} gnumach
     create_tarball ${MIG} mig
     echo "Done creating Tarballs"
+elif [ "$1" = "help" ]
+    then
+    echo "hurd-toolchain, wrapper script for crossgnu to create a cross environment for GNU/Hurd"
+    echo "Available options"
+    echo "archive : Create an archive of the sources for later offline build"
+    echo "clean   : Cleanup sources and objects"
 else
     all
 fi
