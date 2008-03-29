@@ -45,6 +45,6 @@ apply_glibc_patches() {
     get_apply_patches ${GLIBC_DIR} p1 "${PATCHES}/${GLIBC}/p1" 0 
 }
 
-#apply_gcc_patches() {
-## Nothing for gcc-4.1
-#}
+apply_gcc_patches() {
+    echo "No patches for gcc-4.1"
+}
