@@ -32,8 +32,8 @@ TARBALLS=${TOPDIR}/tarballs
 
 all() {
     . ./patch.sh
-    create_dir 
-    get_sources 
+    create_dir
+    get_sources
     build_all
 }
 
