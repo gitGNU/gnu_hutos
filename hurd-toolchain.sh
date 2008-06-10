@@ -249,7 +249,7 @@ then
     rm -rf root
 elif [ "$1" = "archive" ]
     then
-    echo "Archiving sources..."
+    echo "Archiving sources under tarballs/..."
     cd root/src
     create_tarball ${GCC} gcc
     create_tarball ${GLIBC} glibc
